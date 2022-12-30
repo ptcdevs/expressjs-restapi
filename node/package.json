@@ -1,0 +1,35 @@
+{
+  "name": "expressjs-restapi",
+  "version": "0.1.0",
+  "description": "demo rest api using express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptcdevs/express-restapi.git"
+  },
+  "keywords": [
+    "express",
+    "expressjs",
+    "node",
+    "nodejs",
+    "rest",
+    "restapi",
+    "api"
+  ],
+  "author": "David Gallmeier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ptcdevs/express-restapi/issues"
+  },
+  "homepage": "https://github.com/ptcdevs/express-restapi#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
