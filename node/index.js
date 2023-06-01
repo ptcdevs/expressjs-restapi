@@ -8,18 +8,18 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "LogRocket Express API with Swagger",
+      title: "Demo Express API with Swagger",
       version: "0.1.0",
       description:
-        "This is a simple CRUD API application made with Express and documented with Swagger",
+        "This is a simple CRUD API application made with Express and documented with Swagger. Original example from <https://blog.logrocket.com/documenting-express-js-api-swagger/>",
       license: {
         name: "MIT",
         url: "https://spdx.org/licenses/MIT.html",
       },
       contact: {
-        name: "LogRocket",
-        url: "https://logrocket.com",
-        email: "info@email.com",
+        name: "David Gallmeier",
+        url: "https://ptcdevs.xounges.net",
+        email: "ptcdevs@xounges.net",
       },
     },
     servers: [
