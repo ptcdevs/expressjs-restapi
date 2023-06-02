@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-      - dev-build-deploy
+      - fix-hostname-config
   pull_request:
     branches:
       - master
