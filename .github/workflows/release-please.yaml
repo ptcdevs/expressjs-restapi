@@ -15,5 +15,4 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
-          extra-files: |
-            node/package.json
+          path: node
