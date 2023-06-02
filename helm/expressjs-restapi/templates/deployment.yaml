@@ -41,14 +41,14 @@ spec:
             timeoutSeconds: 5
             failureThreshold: 3
             httpGet:
-              path: /health
+              path: /api-docs/
               port: {{ .Values.deployment.containerPort }}
           readinessProbe:
             periodSeconds: 5
             timeoutSeconds: 5
             failureThreshold: 10
             httpGet:
-              path: /health
+              path: /api-docs/
               port: {{ .Values.deployment.containerPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

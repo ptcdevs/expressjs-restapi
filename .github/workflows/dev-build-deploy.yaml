@@ -70,35 +70,35 @@ jobs:
           echo "docker tag: ghcr.io/ptcdevs/expressjs-restapi:${{ needs.set-refs.outputs.branch }}" >> $GITHUB_STEP_SUMMARY
     outputs:
       docker-tag: ${{ steps.set-docker-tag.outputs.docker-tag }}
-#  helm-deploy:
-#    environment: dev
-#    name: Helm deploy to dev
-#    runs-on: ubuntu-latest
-#    needs:
-#      - set-refs
-#      - docker-build
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Check refs
-#        run: |
-#          echo "branch: ${{ needs.set-refs.outputs.branch }}"
-#          echo "docker-tag: ${{ needs.docker-build.outputs.docker-tag }}"
-#      - uses: azure/k8s-set-context@v3
-#        with:
-#          method: kubeconfig
-#          kubeconfig: ${{ secrets.KUBECONFIG }}
-#          context: lke77314-ctx
-#      - name: Helm uninstall
-#        run: helm -n dev uninstall expressjs-restapi-${TAG}
-#        env:
-#          TAG: ${{ needs.set-refs.outputs.branch }}
-#        continue-on-error: true
-#      - id: helm-install
-#        name: Helm install
-#        run: |
-#          helm -n dev install expressjs-restapi-${TAG} ./expressjs-restapi \
-#            --set image.tag=${TAG} \
-#            --wait >> $GITHUB_STEP_SUMMARY
-#        working-directory: helm
-#        env:
-#          TAG: ${{ needs.set-refs.outputs.branch }}
+  helm-deploy:
+    environment: dev
+    name: Helm deploy to dev
+    runs-on: ubuntu-latest
+    needs:
+      - set-refs
+      - docker-build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check refs
+        run: |
+          echo "branch: ${{ needs.set-refs.outputs.branch }}"
+          echo "docker-tag: ${{ needs.docker-build.outputs.docker-tag }}"
+      - uses: azure/k8s-set-context@v3
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+          context: lke77314-ctx
+      - name: Helm uninstall
+        run: helm -n dev uninstall expressjs-restapi-${TAG}
+        env:
+          TAG: ${{ needs.set-refs.outputs.branch }}
+        continue-on-error: true
+      - id: helm-install
+        name: Helm install
+        run: |
+          helm -n dev install expressjs-restapi-${TAG} ./expressjs-restapi \
+            --set image.tag=${TAG} \
+            --wait >> $GITHUB_STEP_SUMMARY
+        working-directory: helm
+        env:
+          TAG: ${{ needs.set-refs.outputs.branch }}

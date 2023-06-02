@@ -36,7 +36,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 deployment:
-  containerPort: 8000
+  containerPort: 3000
 
 service:
   type: ClusterIP
