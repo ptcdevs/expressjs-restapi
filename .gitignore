@@ -208,3 +208,4 @@ dist
 .pnp.*
 /config/github-secret.env
 /config/ptcdevk8s-kubeconfig-secret.yaml
+/config/linode-secret.env
