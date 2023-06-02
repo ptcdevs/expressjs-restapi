@@ -25,11 +25,11 @@ const options = {
 				email: "ptcdevs@xounges.net",
 			},
 		},
-		servers: [
-			{
-				url: "http://localhost:3000",
-			},
-		],
+		// servers: [
+		// 	{
+		// 		url: "http://localhost:3000",
+		// 	},
+		// ],
 	},
 	apis: ["./index.js"],
 };
