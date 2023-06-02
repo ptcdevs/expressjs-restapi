@@ -1,0 +1,3 @@
+Browse application at https://{{ include "expressjs-restapi.fullhost" . }}
+Browse SwaggerUI at https://{{ include "expressjs-restapi.fullhost" . }}/docs
+Browse Redoc at https://{{ include "expressjs-restapi.fullhost" . }}/redoc
