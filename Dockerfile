@@ -1,8 +1,8 @@
 FROM node:18-buster-slim as base
 
 WORKDIR /app
-COPY node/package.json node/package-lock.json* ./
-COPY node .
+COPY ./package.json ./package-lock.json* ./
+COPY . .
 
 FROM base as dev
 RUN npm install

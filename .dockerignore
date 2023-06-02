@@ -1,1 +1,12 @@
-node/node_modules
+.dockerignore
+.github
+.gitignore
+.idea
+CHANGELOG.md
+Dockerfile
+README.md
+config
+docker-compose.yaml
+helm
+node_modules
+tf
