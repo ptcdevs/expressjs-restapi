@@ -44,7 +44,7 @@ jobs:
         with:
           path: |
             ${{ runner.OS }}/docker
-          key: ${{ runner.OS }}-docker-${{ hashFiles('**/Dockerfile') }}-python-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.OS }}-docker-${{ hashFiles('**/Dockerfile') }}-expressjs-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.OS }}-docker-
       - name: Set up QEMU
@@ -61,13 +61,13 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./
-          tags: ghcr.io/ptcdevs/python-restapi:${{ needs.set-refs.outputs.branch }}
+          tags: ghcr.io/ptcdevs/expressjs-restapi:${{ needs.set-refs.outputs.branch }}
           push: true
       - id: set-docker-tag
         name: Output image tag
         run: |
-          echo "docker-tag=$(echo ghcr.io/ptcdevs/python-restapi:${{ needs.set-refs.outputs.branch }})" >> $GITHUB_OUTPUT
-          echo "docker tag: ghcr.io/ptcdevs/python-restapi:${{ needs.set-refs.outputs.branch }}" >> $GITHUB_STEP_SUMMARY
+          echo "docker-tag=$(echo ghcr.io/ptcdevs/expressjs-restapi:${{ needs.set-refs.outputs.branch }})" >> $GITHUB_OUTPUT
+          echo "docker tag: ghcr.io/ptcdevs/expressjs-restapi:${{ needs.set-refs.outputs.branch }}" >> $GITHUB_STEP_SUMMARY
     outputs:
       docker-tag: ${{ steps.set-docker-tag.outputs.docker-tag }}
 #  helm-deploy:
@@ -89,14 +89,14 @@ jobs:
 #          kubeconfig: ${{ secrets.KUBECONFIG }}
 #          context: lke77314-ctx
 #      - name: Helm uninstall
-#        run: helm -n dev uninstall python-restapi-${TAG}
+#        run: helm -n dev uninstall expressjs-restapi-${TAG}
 #        env:
 #          TAG: ${{ needs.set-refs.outputs.branch }}
 #        continue-on-error: true
 #      - id: helm-install
 #        name: Helm install
 #        run: |
-#          helm -n dev install python-restapi-${TAG} ./python-restapi \
+#          helm -n dev install expressjs-restapi-${TAG} ./expressjs-restapi \
 #            --set image.tag=${TAG} \
 #            --wait >> $GITHUB_STEP_SUMMARY
 #        working-directory: helm
