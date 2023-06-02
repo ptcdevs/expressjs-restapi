@@ -206,3 +206,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+/config/github-secret.env
+/config/ptcdevk8s-kubeconfig-secret.yaml
