@@ -1,7 +1,7 @@
 FROM node:18-buster-slim as base
 
 WORKDIR /app
-COPY node/package.json src/package-lock.json* ./
+COPY node/package.json node/package-lock.json* ./
 COPY node .
 
 FROM base as dev
